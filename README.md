@@ -1,6 +1,6 @@
 # Amazon Hackathon
 
-Welcome to [Social2Shelf](https://example.com/) by Cryptic Coders This repository contains the code and documentation for our hackathon submission.
+Welcome to [Social2Shelf](https://social2-shelf.vercel.app) by Cryptic Coders This repository contains the code and documentation for our hackathon submission.
 
 ## Table of Contents
 
@@ -15,13 +15,13 @@ Our solution is a platform that enables users to seamlessly convert social media
 
 ## Installation
 
-### Note: The process of local installation and running involves a lot of steps and api keys we recommend to check out our deployment of the project here: [Link Here](https://example.com)
+### Note: The process of local installation and running involves a lot of steps and api keys we recommend to check out our deployment of the project here: [Link Here](https://social2-shelf.vercel.app)
 
 To install and run this project, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/amazon-hackathon.git
+    git clone https://github.com/Lavesh-Akhadkar/Social2Shelf
     ```
 2. Install frontend dependencies:
     ```bash
