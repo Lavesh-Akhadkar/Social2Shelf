@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styling */
+.custom-scrollbar {
+    scrollbar-width: none; /* For Firefox */
+    scrollbar-color: #ffb980 #f5f5f5; /* Thumb and track colors */
+
+    /* For WebKit browsers (Chrome, Edge, Safari) */
+    overflow: auto; /* Ensures scrollbars are visible if needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Width of vertical scrollbar */
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f5f5f5; /* Light gray track */
+    border-radius: 20px; /* Smooth edges */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #f1c40f; /* Amazon yellow thumb */
+    border-radius: 20px; /* Smooth edges */
+    border: 2px solid #f5f5f5; /* Adds spacing and a cleaner look */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #e1b20f; /* Slightly darker yellow on hover */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #d9a00f; /* Even darker yellow when active */
+}
