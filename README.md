@@ -5,13 +5,21 @@ Welcome to [Social2Shelf](https://social2-shelf.vercel.app) by Cryptic Coders Th
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Installation](#installation)
 - [Usage](#usage)
+- [Installation](#installation)
 - [License](#license)
 
 ## Introduction
 
 Our solution is a platform that enables users to seamlessly convert social media content into comprehensive product listings. Users upload social media links, images, or videos related to a product they like. The backend fetches data from these inputs, extracting information such as product name, description, images, and price to build structured listings. These listings are then displayed on a dummy Amazon-like site where users can browse and purchase items, creating an efficient bridge between social media engagement and e-commerce.
+
+## Usage
+
+1. Paste the link to your social media listing in the input field on homepage or dashboard
+2. Verify the auto filled form by Generative AI.
+3. Click Sell on Amazon
+4. Your product is listed on Amazon 🎉
+
 
 ## Installation
 
@@ -48,13 +56,6 @@ To install and run this project, follow these steps:
     ```bash
     npm run dev
     ```
-
-## Usage
-
-1. Paste the link to your social media listing in the input field on homepage or dashboard
-2. Verify the auto filled form by Generative AI.
-3. Click Sell on Amazon
-4. Your product is listed on Amazon 🎉
 
 ## License
 
