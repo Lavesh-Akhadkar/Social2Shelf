@@ -1,4 +1,4 @@
-# Amazon Hackathon
+# Social2Shelf
 
 Welcome to [Social2Shelf](https://social2-shelf.vercel.app) by Cryptic Coders This repository contains the code and documentation for our hackathon submission.
 
