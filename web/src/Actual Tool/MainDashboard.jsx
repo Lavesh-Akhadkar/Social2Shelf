@@ -11,7 +11,7 @@ const MainDashboard = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://amazon-hackathon-backend-1.onrender.com/api/products/",
+          "https://2a08-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products/",
           {
             headers: {
               "ngrok-skip-browser-warning": "69420",
