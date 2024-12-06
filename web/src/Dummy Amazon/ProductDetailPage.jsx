@@ -15,7 +15,7 @@ const ProductDetailsPage = () => {
         const fetchProductDetails = async () => {
             try {
                 const response = await axios.get(
-                    `https://amazon-hackathon-backend.onrender.com/api/products/${id}`,
+                    `https://amazon-hackathon-backend-1.onrender.com/api/products/${id}`,
                     {
                         headers: {
                             "ngrok-skip-browser-warning": "69420",

@@ -124,7 +124,7 @@ const ProductsPublishPage = () => {
         try {
             setLoading(true); // Start the loader
             const response = await axios.post(
-                "https://amazon-hackathon-backend.onrender.com/api/products",
+                "https://amazon-hackathon-backend-1.onrender.com/api/products",
                 payload,
                 {
                     headers: {

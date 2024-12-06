@@ -21,7 +21,7 @@ const Home = () => {
     setLoading(true); // Start the loader
     try {
       const response = await axios.post(
-        'https://amazon-hackathon-backend.onrender.com/social/analyze-instagram-post/',
+        'https://amazon-hackathon-backend-1.onrender.com/social/analyze-instagram-post/',
         { url: prodLink },
         {
           headers: {

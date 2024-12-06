@@ -54,7 +54,7 @@ const ProductTable = ({ data }) => {
         try {
             console.log(productId);
             const response = await axios.delete(
-                `https://amazon-hackathon-backend.onrender.com/api/products/${productId}`, {
+                `https://amazon-hackathon-backend-1.onrender.com/api/products/${productId}`, {
                 headers: {
                     "ngrok-skip-browser-warning": "69420",
                 }
@@ -71,7 +71,7 @@ const ProductTable = ({ data }) => {
     
         try {
             const response = await axios.post(
-                'https://amazon-hackathon-backend.onrender.com/social/analyze-instagram-post/',
+                'https://amazon-hackathon-backend-1.onrender.com/social/analyze-instagram-post/',
                 { url: prodLink },
                 {
                     headers: {
