@@ -15,7 +15,7 @@ const ProductDetailsPage = () => {
         const fetchProductDetails = async () => {
             try {
                 const response = await axios.get(
-                    `https://2a08-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products/${id}`,
+                    `https://d644-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products/${id}`,
                     {
                         headers: {
                             "ngrok-skip-browser-warning": "69420",

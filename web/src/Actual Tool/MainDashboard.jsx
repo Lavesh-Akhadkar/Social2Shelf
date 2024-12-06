@@ -12,7 +12,7 @@ const MainDashboard = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://2a08-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products/",
+          "https://d644-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products/",
           {
             headers: {
               "ngrok-skip-browser-warning": "69420",
