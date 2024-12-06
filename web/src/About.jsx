@@ -16,7 +16,7 @@ const About = () => {
                 <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
                     {/* Logo Section */}
                     <div className="flex items-center space-x-4">
-                        <NavLink to='/'>
+                        <NavLink to='/home'>
                             <img
                                 className="w-24 rounded-lg"
                                 src="../megaLogo.jpg"
@@ -43,7 +43,7 @@ const About = () => {
                             }
                         >
                             <i className="bi bi-house-fill text-xl"></i>
-                            <span>Home</span>
+                            <span>Dashboard</span>
                         </NavLink>
                         <NavLink
                             to="/dashboard/analytics"
@@ -81,7 +81,7 @@ const About = () => {
                             onClick={() => setIsMenuOpen(false)} // Close menu on link click
                         >
                             <i className="bi bi-house-fill text-xl"></i>
-                            <span>Home</span>
+                            <span>Dashboard</span>
                         </NavLink>
                         <NavLink
                             to="/dashboard/analytics"
@@ -246,16 +246,15 @@ const About = () => {
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { name: "Lavesh Akhadkar", role: "AI and Backend Engineer" },
-                            { name: "Parth Kadam", role: "Frontend Developer" },
-                            { name: "Aditya Shinde", role: "UI/UX Designer" },
+                            { name: "Lavesh Akhadkar", role: "AI and Backend Engineer" , icon : '../ai.png' },
+                            { name: "Parth Kadam", role: "Frontend Developer", icon : '../frontend.png' },
+                            { name: "Aditya Shinde", role: "UI/UX Designer" , icon : '../ui.png' },
                         ].map((member, index) => (
                             <div
                                 key={index}
                                 className="bg-[#363637] p-6 rounded-xl shadow-lg hover:scale-105 transition-transform text-center"
                             >
-                                <div className="h-24 w-24 bg-gray-500 rounded-full mx-auto mb-4">
-                                </div>
+                                <img src={member.icon} className="h-20 w-20 rounded-xl mx-auto mb-4" />
                                 <h3 className="text-xl font-semibold">{member.name}</h3>
                                 <p className="text-gray-400">{member.role}</p>
                             </div>

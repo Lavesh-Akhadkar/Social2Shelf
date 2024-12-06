@@ -10,6 +10,10 @@ const Home = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [showErrorScreen, setShowErrorScreen] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -31,7 +35,18 @@ const Home = () => {
       );
       navigate('/dashboard/publish', { state: { prodData: response.data } });
     } catch (error) {
-      console.error('Error fetching product data:', error);
+      if (error.response && error.response.status === 400 && error.response.data.detail === "Product validation failed. Reason: Inappropriate Content") {
+        setLoading(false)
+        setShowErrorScreen(true);
+        setErrorMsg(' Product Validation Failed Due To Inappropriate Content ❌❌');
+
+
+      } else {
+        setLoading(false)
+        setShowErrorScreen(true);
+        setErrorMsg('Error fetching product data');
+        console.error('Error fetching product data:', error);
+      }
     } finally {
       setLoading(false); // Stop the loader
     }
@@ -39,13 +54,24 @@ const Home = () => {
 
   return (
     <>
+     {/* error screen */}
+     {
+          showErrorScreen &&
+          <div className="fixed inset-0 flex flex-col justify-center items-center space-y-6 z-50 bg-gray-900">
+            <img src="../error404.png" className="w-64" />
+            <h1 className="text-3xl text-white font-bold"> {errorMsg} </h1>
+            <button
+              className="px-6 py-2 rounded-xl border-2 border-[#7E57C2] text-white text-lg font-semibold hover:bg-black"
+              onClick={() => { setShowErrorScreen(false) }}>Back to page</button>
+          </div>
+        }
 
       <nav className="bg-[#212121] w-full text-[#F7F7F7]">
         {/* Navbar Container */}
         <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <NavLink to='/'>
+            <NavLink to='/home'>
               <img
                 className="w-24 rounded-lg"
                 src="../megaLogo.jpg"
@@ -66,16 +92,16 @@ const Home = () => {
           {/* Navbar Links (Hidden on Small Screens) */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLink
-              to="dashboard/home"
+              to="/dashboard/home"
               className={({ isActive }) =>
                 `flex items-center space-x-2 px-3 py-2 rounded-md ${isActive ? 'bg-[#7E57C2]' : ''}`
               }
             >
               <i className="bi bi-house-fill text-xl"></i>
-              <span>Home</span>
+              <span>Dashboard</span>
             </NavLink>
             <NavLink
-              to="dashboard/analytics"
+              to="/dashboard/analytics"
               className={({ isActive }) =>
                 `flex items-center space-x-2 px-3 py-2 rounded-md ${isActive ? 'bg-[#7E57C2]' : ''}`
               }
@@ -84,7 +110,7 @@ const Home = () => {
               <span>Analytics</span>
             </NavLink>
             <NavLink
-              to="about"
+              to="/about"
               className={({ isActive }) =>
                 `flex items-center space-x-2 px-3 py-2 rounded-md ${isActive ? 'bg-[#7E57C2]' : ''}`
               }
@@ -103,17 +129,17 @@ const Home = () => {
         {isMenuOpen && (
           <div className="flex flex-col md:hidden space-y-2 p-4">
             <NavLink
-              to="home"
+              to="/dashboard/home"
               className={({ isActive }) =>
                 `flex items-center space-x-2 px-3 py-2 rounded-md ${isActive ? 'bg-[#7E57C2]' : ''}`
               }
               onClick={() => setIsMenuOpen(false)} // Close menu on link click
             >
               <i className="bi bi-house-fill text-xl"></i>
-              <span>Home</span>
+              <span>Dashboard</span>
             </NavLink>
             <NavLink
-              to="analytics"
+              to="/dashboard/analytics"
               className={({ isActive }) =>
                 `flex items-center space-x-2 px-3 py-2 rounded-md ${isActive ? 'bg-[#7E57C2]' : ''}`
               }
@@ -123,7 +149,7 @@ const Home = () => {
               <span>Analytics</span>
             </NavLink>
             <NavLink
-              to="about"
+              to="/about"
               className={({ isActive }) =>
                 `flex items-center space-x-2 px-3 py-2 rounded-md ${isActive ? 'bg-[#7E57C2]' : ''}`
               }
@@ -148,6 +174,7 @@ const Home = () => {
 
 
       <div className="bg-[#212121] flex flex-col items-center justify-center min-h-screen w-full p-6 sm:p-10 md:p-12">
+       
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-7xl">
           {/* Left Section */}
           <div className="flex flex-col items-center lg:items-start space-y-8 sm:space-y-10">

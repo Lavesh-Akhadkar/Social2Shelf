@@ -24,6 +24,8 @@ const ProductsPublishPage = () => {
     const location = useLocation();
     const { prodData } = location.state;
 
+    const [showErrorScreen, setShowErrorScreen] = useState(false);
+
     // Fetch the product data using useEffect
     useEffect(() => {
         if (prodData) {
@@ -83,7 +85,7 @@ const ProductsPublishPage = () => {
     const handlePublish = async (event) => {
         event.preventDefault();
 
-      
+
 
         // Combine dynamic attributes with new fields
         const combinedDynamicAttributes = {
@@ -134,14 +136,19 @@ const ProductsPublishPage = () => {
                 }
             );
 
+
             if (response) {
+                console.log(response.data);
+
                 setLoading(false); // Stop the loader
                 setId(response.data);
                 setOpenModal(true);
             }
         } catch (error) {
+
             console.error("Error submitting product:", error);
             setLoading(false); // Stop the loader
+            setShowErrorScreen(true);
 
         }
     };
@@ -170,6 +177,18 @@ const ProductsPublishPage = () => {
 
     return (
         <div className="p-6 bg-[#363637] text-white min-h-screen w-full overflow-auto">
+            {/* error screen */}
+            {
+                showErrorScreen &&
+                <div className="fixed inset-0 flex flex-col justify-center items-center space-y-6 z-50 bg-gray-900">
+                <img src="../error404.png" className="w-64" />
+                    <h1 className="text-3xl text-white font-bold"> Invalid Product Details !</h1>
+                    <button 
+                    className="px-6 py-2 rounded-xl border-2 border-[#7E57C2] text-white text-lg font-semibold hover:bg-black"
+                     onClick={() => { setShowErrorScreen(false) }}>Back to page</button>
+                </div>
+            }
+
             <h1 className="text-4xl font-bold mb-8 text-[#7E57C2] text-center">
                 Edit and Publish Product
             </h1>

@@ -5,7 +5,6 @@ import 'flowbite';
 import Categories from './Dummy Amazon/components/Categories';
 import ProdImgSlider from './Dummy Amazon/components/ProdImgSlider';
 import ProductListings from './Dummy Amazon/components/ProductListings';
-import Login from './Login';
 import Home from './Actual Tool/Home';
 import SidebarLayout from './Actual Tool/SidebarLayout';
 import MainDashboard from './Actual Tool/MainDashboard';
@@ -14,17 +13,28 @@ import ProductPublishPage from './Actual Tool/ProductPublishPage';
 import ProductDetailPage from './Dummy Amazon/ProductDetailPage';
 import AmazonHome from './Dummy Amazon/AmazonHome';
 import About from './About';
+import Login from './Actual Tool/Login';
+import Signup from './Actual Tool/Signup';
 
 const App = () => {
 
   const router = createBrowserRouter([
     {
-      path: '/',
-      element: <Home /> //tool homepage
+      index : true,
+      element : <Signup />
+    },
+    {
+      path: '/signup',
+      element: <Signup /> 
     },
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path : '/home',
+      element : <Home />
+
     },
     {
       path : '/about',

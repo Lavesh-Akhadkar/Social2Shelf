@@ -6,6 +6,7 @@ const MainDashboard = () => {
   const [tableData, setTableData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     const fetchProductData = async () => {
       try {
@@ -39,6 +40,7 @@ const MainDashboard = () => {
 
   return (
     <div className="bg-[#363637] flex flex-col w-full h-full overflow-auto p-4 md:px-6 py-6 space-y-16">
+      
       {/* Welcome Title */}
       <div className="welcomeTitle flex justify-between shadow-2xl text-white rounded-xl">
         <div className="greetingBox border flex flex-col w-full mx-auto relative space-y-4 p-5 shadow-md hover:shadow-xl rounded-xl bg-gradient-to-r from-[#212121] to-nblack-800">

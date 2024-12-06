@@ -16,6 +16,10 @@ const ProductTable = ({ data }) => {
     const [loading, setLoading] = useState(false);  // Loader state
     const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
 
+    const [showErrorScreen, setShowErrorScreen] = useState(false);
+    const [errorMsg , setErrorMsg] = useState('');
+
+
     const navigate = useNavigate();
 
     const categories = ["All Categories", ...new Set(data.map((product) => product.category))];
@@ -68,7 +72,7 @@ const ProductTable = ({ data }) => {
     const handleAddProduct = async () => {
         setLoading(true);  // Start the loader
         setIsModalOpen(false);  // Close the modal
-    
+
         try {
             const response = await axios.post(
                 'https://2a08-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/social/analyze-instagram-post/',
@@ -84,15 +88,20 @@ const ProductTable = ({ data }) => {
         } catch (error) {
             // Check if the error response contains the specific validation failure
             if (error.response && error.response.status === 400 && error.response.data.detail === "Product validation failed. Reason: Inappropriate Content") {
-                navigate('/dashboard/publish', { state: { errorMessage: "Product validation failed. Reason: Inappropriate Content" } });
+                setShowErrorScreen(true);
+                setErrorMsg(' Product Validation Failed Due To Inappropriate Content ❌❌');
+
+
             } else {
                 console.error('Error fetching product data:', error);
+                setShowErrorScreen(true);
+                setErrorMsg('Error fetching product data');
             }
         } finally {
             setLoading(false); // Stop the loader
         }
     };
-    
+
 
     const applyFilters = () => {
         let filteredData = allData;
@@ -139,6 +148,17 @@ const ProductTable = ({ data }) => {
 
     return (
         <div className="bg-[#1f1f1f] p-6 rounded-lg shadow-md">
+            {/* error screen */}
+            {
+                showErrorScreen &&
+                <div className="fixed inset-0 flex flex-col justify-center items-center space-y-6 z-50 bg-gray-900">
+                    <img src="../error404.png" className="w-64" />
+                    <h1 className="text-3xl text-white font-bold"> {errorMsg} </h1>
+                    <button
+                        className="px-6 py-2 rounded-xl border-2 border-[#7E57C2] text-white text-lg font-semibold hover:bg-black"
+                        onClick={() => { setShowErrorScreen(false) }}>Back to page</button>
+                </div>
+            }
 
             <h1 className="p-4 text-white font-semibold text-3xl">My Products</h1>
             <div className="max-w-5xl mx-auto flex flex-wrap gap-4 items-center bg-gradient-to-r from-[#212121] to-[#363636] p-4 shadow-lg rounded-md">
