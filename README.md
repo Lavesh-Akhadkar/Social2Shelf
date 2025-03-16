@@ -1,4 +1,5 @@
-# Social2Shelf
+# Social2Shelf 
+# 🎉 Secured Top 12 Position out of 100K participants in the Amazon Smbhav National Level Hackathon.
 
 Welcome to [Social2Shelf](https://social2-shelf.vercel.app) by Cryptic Coders This repository contains the code and documentation for our hackathon submission.
 
