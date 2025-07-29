@@ -126,7 +126,7 @@ const ProductsPublishPage = () => {
         try {
             setLoading(true); // Start the loader
             const response = await axios.post(
-                "https://d644-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products",
+                "https://social2shelf-dev.onrender.com/api/products",
                 payload,
                 {
                     headers: {
