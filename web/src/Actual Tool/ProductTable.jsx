@@ -58,7 +58,7 @@ const ProductTable = ({ data }) => {
         try {
             console.log(productId);
             const response = await axios.delete(
-                `https://d644-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/api/products/${productId}`, {
+                `https://social2shelf-dev.onrender.com/api/products/${productId}`, {
                 headers: {
                     "ngrok-skip-browser-warning": "69420",
                 }
@@ -75,7 +75,7 @@ const ProductTable = ({ data }) => {
 
         try {
             const response = await axios.post(
-                'https://d644-2405-201-20-b11e-a08d-24f7-5db0-803f.ngrok-free.app/social/analyze-instagram-post/',
+                'https://social2shelf-dev.onrender.com/social/analyze-instagram-post/',
                 { url: prodLink },
                 {
                     headers: {
